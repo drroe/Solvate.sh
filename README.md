@@ -1,5 +1,5 @@
 # Solvate.sh
-Wrapper script for Amber's LEaP ('tleap') to solvate a system with specific number of water molecules.
+Wrapper script for Amber's LEaP ('tleap') to solvate a system with specific number of water molecules. Also makes use of cpptraj for determining molecule info.
 
 # Usage
 ```
