@@ -298,7 +298,7 @@ while [[ $loop -eq 1 ]] ; do
     echo "Only $diff off, removing solvent residue(s) ($FIRSTRES-$LASTRES)"
     cp $LEAPIN $TEMPLEAP
     Solvate
-    for ((RRES = $FIRSTRES; RRES <= $LASTRES; RRES++)) ; do
+    for ((RRES = $LASTRES; RRES >= $FIRSTRES; RRES--)) ; do
       echo "remove $MOLNAME $MOLNAME.$RRES" >> $TEMPLEAP
     done
     SaveAndQuit
