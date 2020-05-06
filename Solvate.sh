@@ -273,7 +273,8 @@ while [[ $loop -eq 1 ]] ; do
     exit 1
   fi
   # How many waters were added?
-  solvent_res_added=`$CPPTRAJ -p $TOP -mr ':WAT' | awk '{print NF - 1}'`
+  #solvent_res_added=`$CPPTRAJ -p $TOP -mr ':WAT' | awk '{print NF - 1}'`
+  solvent_res_added=`echo parminfo | $CPPTRAJ -p $TOP | awk '{if ($2 == "solvent" && $3 == "molecules.") print $1;}'`
   if [[ -z $solvent_res_added ]] ; then
     echo "Error: Could not get number of solvent residues." > /dev/stderr
     exit 1
