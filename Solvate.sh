@@ -48,17 +48,20 @@ SOLVENT_UNIT[0]="TIP3PBOX"
 SOLVENT_UNIT[1]="SPCBOX"
 SOLVENT_UNIT[2]="OPCBOX"
 SOLVENT_UNIT[3]="TIP4PEWBOX"
-SOLVENT_UNIT[4]=""
+SOLVENT_UNIT[4]="SPCFWBOX"
+SOLVENT_UNIT[5]=""
 if [ "$AMBER_VERSION" = 'old' ] ; then
   SOLVENT_CMD[0]=""
   SOLVENT_CMD[1]="WAT=SPC\nloadAmberParams frcmod.spce\n"
   SOLVENT_CMD[2]="WAT=OPC\nloadAmberParams frcmod.opc\n"
   SOLVENT_CMD[3]="WAT=TP4\nloadAmberParams frcmod.tip4pew\n"
+  SOLVENT_CMD[4]="WAT=SPF\nloadAmberParams frcmod.spcfw\nset default FlexibleWater on\n"
 else
   SOLVENT_CMD[0]="source leaprc.water.tip3p\n"
   SOLVENT_CMD[1]="source leaprc.water.spce\n"
   SOLVENT_CMD[2]="source leaprc.water.opc\n"
   SOLVENT_CMD[3]="source leaprc.water.tip4pew\n"
+  SOLVENT_CMD[4]="WAT=SPF\nloadAmberParams frcmod.spcfw\nset default FlexibleWater on\n"
 fi
 # ------------------------------------------------------------------------------
 Help() {
